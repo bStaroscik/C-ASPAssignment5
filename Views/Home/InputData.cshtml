@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Assignment4.Models.FuelCalcItem
+@{
     ViewData["Title"] = "Input Data";
 }
 
@@ -8,19 +9,19 @@
 </div>
 
 
-<!--<h1>Fuel Economy Calculator</h1>
+<h1>Fuel Economy Calculator</h1>
 
-<form asp-action="FuelEcon" method="post">-->
-    @*<div asp-validation-summary="All"></div>*@
-    <!--<div>
-        <label asp-for="StartingOdometer">Starting Odometer: </label>
-        <input asp-for="StartingOdometer" />
-        <span asp-validation-for="StartingOdometer"></span>
+<form asp-action="FuelEcon" method="post">
+    <div asp-validation-summary="All"></div>
+    <div>
+        <label asp-for="StartOdometer">Starting Odometer: </label>
+        <input asp-for="StartOdometer" />
+        <span asp-validation-for="StartOdometer"></span>
     </div>
     <div>
-        <label asp-for="EndingOdometer">Ending Odometer: </label>
-        <input asp-for="EndingOdometer" />
-        <span asp-validation-for="EndingOdometer"></span>
+        <label asp-for="EndOdometer">Ending Odometer: </label>
+        <input asp-for="EndOdometer" />
+        <span asp-validation-for="EndOdometer"></span>
     </div>
     <div>
         <label asp-for="AmountOfFuel">Amount of Fuel: </label>
@@ -28,18 +29,18 @@
         <span asp-validation-for="AmountOfFuel"></span>
     </div>
     <div>
-        <label asp-for="CostPerGallon">Cost Per Gallon: </label>
-        <input asp-for="CostPerGallon" />
-        <span asp-validation-for="CostPerGallon"></span>
+        <label asp-for="CostOfFuel">Cost Per Gallon: </label>
+        <input asp-for="CostOfFuel" />
+        <span asp-validation-for="CostOfFuel"></span>
     </div>
     <div>
         <label>Miles Per Gallon: </label>
-        <input value="@ViewBag.FE.ToString("0.00.##")" readonly>
+        <input value="ViewBag.FE.ToString("0.00.##")" readonly>
     </div>
     <div>
         <label>Cost Per Mile: </label>
-        <input value="@ViewBag.FE2.ToString("C2")" readonly>
+        <input value="ViewBag.FE2.ToString("C2")" readonly>
     </div>
     <button type="submit">Calculate</button>
     <a asp-action="FuelEcon">Clear</a>
-</form>-->
+</form>
