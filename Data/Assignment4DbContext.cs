@@ -14,6 +14,23 @@ namespace Assignment4.Data
         {
         }
 
-        public DbSet<Assignment4.Models.FuelCalcItem> FuelCalcItem { get; set; }
+        public DbSet<FuelCalcItem> FuelCalcItems { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+
+            builder.Entity<FuelCalcItem>().HasData(
+                new FuelCalcItem
+                {
+                    Id = 1,
+                    StartOdometer = 0,
+                    EndOdometer = 100,
+                    AmountOfFuel = 50,
+                    CostOfFuel = 25.5m
+                }
+                );
+
+        }
     }
 }

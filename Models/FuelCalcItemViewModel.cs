@@ -13,7 +13,7 @@ namespace Assignment4.Models
         public int StartOdometer { get; set; }
         [Display(Name = "Ending Odometer")]
         public int EndOdometer { get; set; }
-        [Display(Name = "Amount of Fuel")]
+        [Display(Name = "Amount of Fuel (Gallons)")]
         public decimal AmountOfFuel { get; set; }
         [Display(Name = "Cost of Fuel")]
         [DisplayFormat(DataFormatString = "{0:C}")]
@@ -23,7 +23,7 @@ namespace Assignment4.Models
         [Display(Name = "Miles per Gallon")]
         public decimal FuelMPG
         {
-            get => (EndOdometer - StartOdometer);
+            get => (EndOdometer - StartOdometer) / AmountOfFuel;
         }
 
         private decimal costPerMile;

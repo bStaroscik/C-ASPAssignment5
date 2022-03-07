@@ -1,0 +1,54 @@
+﻿@model Assignment4.Models.FuelCalcItemViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Fuel Calculations</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.StartOdometer)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.StartOdometer)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EndOdometer)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EndOdometer)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AmountOfFuel)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AmountOfFuel)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CostOfFuel)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CostOfFuel)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FuelMPG)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FuelMPG)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CostPerMile)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CostPerMile)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

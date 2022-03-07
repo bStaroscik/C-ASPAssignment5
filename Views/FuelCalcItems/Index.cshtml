@@ -1,5 +1,4 @@
-﻿@page
-@model Assignment4.IndexModel
+﻿@model IEnumerable<Assignment4.Models.FuelCalcItem>
 
 @{
     ViewData["Title"] = "Index";
@@ -8,28 +7,28 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-action="Create">Create New</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.FuelCalcItem[0].StartOdometer)
+                @Html.DisplayNameFor(model => model.StartOdometer)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FuelCalcItem[0].EndOdometer)
+                @Html.DisplayNameFor(model => model.EndOdometer)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FuelCalcItem[0].AmountOfFuel)
+                @Html.DisplayNameFor(model => model.AmountOfFuel)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FuelCalcItem[0].CostOfFuel)
+                @Html.DisplayNameFor(model => model.CostOfFuel)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.FuelCalcItem) {
+@foreach (var item in Model) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.StartOdometer)
@@ -44,9 +43,9 @@
                 @Html.DisplayFor(modelItem => item.CostOfFuel)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>
 }
