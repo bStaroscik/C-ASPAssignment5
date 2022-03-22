@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Assignment4.Models.FuelCalcItem>
+﻿@model IEnumerable<Assignment4.Models.FuelCalcItemViewModel>
 
 @{
     ViewData["Title"] = "Index";
@@ -9,6 +9,10 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+@{ 
+    decimal totalMiles = 0.0m;
+    decimal totalCost = 0.0m;
+}
 <table class="table">
     <thead>
         <tr>
@@ -24,11 +28,17 @@
             <th>
                 @Html.DisplayNameFor(model => model.CostOfFuel)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FuelMPG)
+            </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
+    totalMiles += item.FuelMPG;
+    //totalCost += item.CostPerMile;
+    //Fix divide by zero problem?
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.StartOdometer)
@@ -43,6 +53,9 @@
                 @Html.DisplayFor(modelItem => item.CostOfFuel)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.FuelMPG)
+            </td>
+            <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
@@ -51,3 +64,6 @@
 }
     </tbody>
 </table>
+
+<p>Total miles driven this period: @totalMiles</p>
+<p>Total miles cost per mile this period: </p>

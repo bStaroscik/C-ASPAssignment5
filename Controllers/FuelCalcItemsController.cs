@@ -22,7 +22,24 @@ namespace Assignment4.Controllers
         // GET: FuelCalcItems
         public async Task<IActionResult> Index()
         {
-            return View(await _context.FuelCalcItems.ToListAsync());
+            var fuelList = await _context.FuelCalcItems.ToListAsync();
+
+            List<FuelCalcItemViewModel> listOfFuelItems = new List<FuelCalcItemViewModel>();
+
+            foreach(var s in fuelList)
+            {
+                FuelCalcItemViewModel fcViewModel = new FuelCalcItemViewModel
+                {
+                    Id = s.Id,
+                    StartOdometer = s.StartOdometer,
+                    EndOdometer = s.EndOdometer,
+                    AmountOfFuel = s.AmountOfFuel,
+                    CostOfFuel = s.CostOfFuel
+                };
+                listOfFuelItems.Add(fcViewModel);
+            }
+            return View(listOfFuelItems);
+            //return View(await _context.FuelCalcItems.ToListAsync());
         }
 
         // GET: FuelCalcItems/Details/5
