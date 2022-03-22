@@ -2,7 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <AssemblyName>Assignment4</AssemblyName>
+    <AssemblyName>Assignment5</AssemblyName>
+    <RootNamespace>Assignment5</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
