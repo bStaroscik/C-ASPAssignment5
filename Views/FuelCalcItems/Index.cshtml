@@ -36,8 +36,8 @@
     </thead>
     <tbody>
 @foreach (var item in Model) {
-    totalMiles += item.FuelMPG;
-    //totalCost += item.CostPerMile;
+    totalMiles += (item.EndOdometer - item.StartOdometer);
+    totalCost += item.CostPerMile;
     //Fix divide by zero problem?
         <tr>
             <td>
@@ -66,4 +66,4 @@
 </table>
 
 <p>Total miles driven this period: @totalMiles</p>
-<p>Total miles cost per mile this period: </p>
+<p>Total cost per mile this period: @(totalCost.ToString("c2"))</p>

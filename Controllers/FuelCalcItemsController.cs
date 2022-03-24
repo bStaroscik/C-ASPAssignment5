@@ -100,7 +100,7 @@ namespace Assignment4.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,StartOdometer,EndOdometer,AmountOfFuel,CostOfFuel")] FuelCalcItem fuelCalcItem)
         {
-            if(fuelCalcItem.EndOdometer >= fuelCalcItem.StartOdometer)
+            if(fuelCalcItem.EndOdometer > fuelCalcItem.StartOdometer)
             {
                 if(fuelCalcItem.AmountOfFuel > 0)
                 {
@@ -162,7 +162,7 @@ namespace Assignment4.Controllers
             {
                 return NotFound();
             }
-            if(fuelCalcItem.EndOdometer >= fuelCalcItem.StartOdometer)
+            if(fuelCalcItem.EndOdometer > fuelCalcItem.StartOdometer)
             {
                 if(fuelCalcItem.AmountOfFuel > 0)
                 {
